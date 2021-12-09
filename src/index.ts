@@ -15,8 +15,8 @@ program.parse(process.argv);
 const opts = program.opts();
 
 if(opts.make) {
-    CreateFiles(opts.commit, opts.target);
+    CreateFiles(opts.commit, opts.target).then(r => {})
 } else if (opts.remove) {
-    new RemoveFiles();
+    RemoveFiles().then(r => {});
 }
 

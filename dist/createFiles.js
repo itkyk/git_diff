@@ -13,22 +13,21 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const child_process_1 = require("child_process");
+const fs_1 = __importDefault(require("fs"));
 const util_1 = __importDefault(require("util"));
-const decompress_1 = __importDefault(require("decompress"));
-const decompress_tarxz_1 = __importDefault(require("decompress-tarxz"));
+const util_2 = __importDefault(require("./util"));
 const exec = util_1.default.promisify(child_process_1.exec);
 const CreateFiles = (_commit, _branch) => __awaiter(void 0, void 0, void 0, function* () {
     const commit = _commit;
     const branch = _branch;
-    const outPutDir = "./archive";
+    const outPutDir = "./gitDiffTemp";
     const outPutFile = `${outPutDir}/diff.tar`;
-    console.log(outPutFile);
-    yield exec(`git archive --format=tar \`git diff --name-only ${branch} ${commit} --diff-filter=ACMRD\` -o ${outPutFile}`);
-    console.log("解凍");
-    (0, decompress_1.default)(outPutFile, outPutDir, {
-        plugins: [
-            decompress_tarxz_1.default
-        ]
-    }).then(r => { });
+    if (!fs_1.default.existsSync(outPutDir)) {
+        util_2.default.log("---------Create Temp Directory---------");
+        yield exec("mkdir ./gitDiffTemp");
+    }
+    yield exec(`git archive ${commit} --format=tar \`git diff --name-only ${branch} ${commit} --diff-filter=ACMR\` -o ${outPutFile}`);
+    yield exec(`tar -zxvf ${outPutFile} -C ${outPutDir}`);
+    yield exec(`rm ${outPutFile}`);
 });
 exports.default = CreateFiles;

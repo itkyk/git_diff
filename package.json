@@ -7,7 +7,7 @@
     "init": "tsc --init",
     "start": "tsc -w",
     "build": "tsc",
-    "test": "node ./dist/index.js -m --commit HEAD -t origin/master"
+    "test": "node ./dist/index.js -m --commit HEAD -t origin/master && node ./dist/index.js -r"
   },
   "repository": {
     "type": "git",
@@ -31,8 +31,8 @@
     "@types/decompress": "^4.2.4",
     "child_process": "^1.0.2",
     "commander": "^8.3.0",
-    "decompress": "^4.2.1",
-    "decompress-tarxz": "^3.0.0",
+    "fs": "0.0.1-security",
+    "path": "^0.12.7",
     "util": "^0.12.4"
   }
 }
