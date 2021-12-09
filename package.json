@@ -1,5 +1,5 @@
 {
-  "name": "git_diff",
+  "name": "@itkyk/git-diff",
   "version": "0.0.1",
   "description": "",
   "main": "./dist/index.js",
@@ -12,6 +12,9 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/itkyk/git_diff.git"
+  },
+  "bin": {
+    "gitDiff": "./dist/index.js"
   },
   "keywords": [
     "git",
