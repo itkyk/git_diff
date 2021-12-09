@@ -16,7 +16,7 @@ const fs_1 = __importDefault(require("fs"));
 const util_1 = __importDefault(require("./util"));
 const RemoveFiles = () => __awaiter(void 0, void 0, void 0, function* () {
     const archivePath = `./gitDiffTemp`;
-    yield fs_1.default.rmSync(archivePath, { recursive: true });
+    yield fs_1.default.rm(archivePath, { recursive: true }, () => { });
     util_1.default.log("---------Remove TEMP Directory---------");
 });
 exports.default = RemoveFiles;

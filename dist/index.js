@@ -19,5 +19,5 @@ if (opts.make) {
     (0, createFiles_1.default)(opts.commit, opts.target).then(r => { });
 }
 else if (opts.remove) {
-    (0, removeFiles_1.default)();
+    (0, removeFiles_1.default)().then(r => { });
 }
