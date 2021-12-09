@@ -10,11 +10,13 @@ const removeFiles_1 = __importDefault(require("./removeFiles"));
 const program = new commander_1.Command();
 program
     .option("-m, --make", "create git diff")
-    .option("-r, --remove", "delete diff files");
+    .option("-r, --remove", "delete diff files")
+    .option("-c,--commit [value]", "target commit")
+    .option("-t, --target [value]", "target branch");
 program.parse(process.argv);
 const opts = program.opts();
 if (opts.make) {
-    new createFiles_1.default();
+    (0, createFiles_1.default)(opts.commit, opts.target);
 }
 else if (opts.remove) {
     new removeFiles_1.default();
