@@ -12,11 +12,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const fs_1 = __importDefault(require("fs"));
+const rimraf_1 = __importDefault(require("rimraf"));
 const util_1 = __importDefault(require("./util"));
 const RemoveFiles = () => __awaiter(void 0, void 0, void 0, function* () {
     const archivePath = `./gitDiffTemp`;
-    yield fs_1.default.rm(archivePath, { recursive: true }, () => { });
+    rimraf_1.default.sync(archivePath);
     util_1.default.log("---------Remove TEMP Directory---------");
 });
 exports.default = RemoveFiles;
