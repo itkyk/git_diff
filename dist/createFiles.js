@@ -26,8 +26,17 @@ const CreateFiles = (_commit, _branch) => __awaiter(void 0, void 0, void 0, func
         util_2.default.log("---------Create Temp Directory---------");
         yield exec("mkdir ./gitDiffTemp");
     }
+    util_2.default.log("---------Get Git Archive Start ---------");
     yield exec(`git archive ${commit} --format=tar \`git diff --name-only ${branch} ${commit} --diff-filter=ACMR\` -o ${outPutFile}`);
     yield exec(`tar -zxvf ${outPutFile} -C ${outPutDir}`);
-    yield exec(`rm ${outPutFile}`);
+    fs_1.default.rm(outPutFile, (error) => {
+        if (error) {
+            util_2.default.log("---------Get Git Archive Error---------", "\u001b[31m");
+            console.log(error);
+        }
+        else {
+            util_2.default.log("---------Getting Git Archive Done---------");
+        }
+    });
 });
 exports.default = CreateFiles;

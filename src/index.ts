@@ -8,8 +8,8 @@ const program = new Command();
 program
     .option("-m, --make", "create git diff")
     .option("-r, --remove", "delete diff files")
-    .option("-c,--commit [value]", "target commit")
-    .option("-t, --target [value]", "target branch")
+    .option("-t,--to [value]", "after commit branch")
+    .option("-f, --from [value]", "before commit branch", "origin/master")
 program.parse(process.argv);
 
 const opts = program.opts();

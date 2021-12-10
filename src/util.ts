@@ -1,6 +1,6 @@
 class Utility {
-    static log(arg:string) {
-        console.log(`\u001b[34m${arg}\u001b[0m`)
+    static log(arg:string, color:string = "\u001b[34m") {
+        console.log(`${color}${arg}\u001b[0m`)
     }
 }
 
