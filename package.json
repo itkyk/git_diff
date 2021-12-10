@@ -1,13 +1,13 @@
 {
   "name": "@itkyk/git-diff",
-  "version": "0.0.3",
+  "version": "1.0.0",
   "description": "",
   "main": "./dist/index.js",
   "scripts": {
     "init": "tsc --init",
     "start": "tsc -w",
     "build": "tsc",
-    "test": "node ./dist/index.js -m --commit HEAD -t origin/master && node ./dist/index.js -r"
+    "test": "node ./dist/index.js -m -t HEAD -f origin/master && node ./dist/index.js -r"
   },
   "repository": {
     "type": "git",
