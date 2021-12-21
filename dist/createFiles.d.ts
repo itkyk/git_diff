@@ -1,2 +1,2 @@
-declare const CreateFiles: (_commit: string, _branch: string) => Promise<void>;
+declare const CreateFiles: (_to: string, _from: string) => Promise<void>;
 export default CreateFiles;

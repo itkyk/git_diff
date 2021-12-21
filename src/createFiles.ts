@@ -7,9 +7,9 @@ import Utility from "./util";
 const exec = Util.promisify(Exec);
 
 
-const CreateFiles = async(_commit:string, _branch:string) => {
-    const commit = _commit;
-    const branch = _branch;
+const CreateFiles = async(_to:string, _from:string) => {
+    const to = _to;
+    const from = _from;
     const outPutDir = "./gitDiffTemp";
     const outPutFile = `${outPutDir}/diff.tar`;
     if (!fs.existsSync(outPutDir)) {
@@ -17,7 +17,7 @@ const CreateFiles = async(_commit:string, _branch:string) => {
         await exec("mkdir ./gitDiffTemp");
     }
     Utility.log("---------Get Git Archive Start ---------")
-    await exec(`git archive ${commit} --format=tar \`git diff --name-only ${branch} ${commit} --diff-filter=ACMR\` -o ${outPutFile}`);
+    await exec(`git archive ${to} --format=tar \`git diff --name-only ${from} ${to} --diff-filter=ACMR\` -o ${outPutFile}`);
     await exec(`tar -zxvf ${outPutFile} -C ${outPutDir}`);
     fs.rm(outPutFile, (error) => {
         if (error) {

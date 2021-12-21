@@ -16,7 +16,7 @@ program
 program.parse(process.argv);
 const opts = program.opts();
 if (opts.make) {
-    (0, createFiles_1.default)(opts.commit, opts.target).then(r => { });
+    (0, createFiles_1.default)(opts.to, opts.from).then(r => { });
 }
 else if (opts.remove) {
     (0, removeFiles_1.default)().then(r => { });
