@@ -27,7 +27,7 @@ const CreateFiles = (_to, _from) => __awaiter(void 0, void 0, void 0, function* 
         yield exec("mkdir ./gitDiffTemp");
     }
     util_2.default.log("---------Get Git Archive Start ---------");
-    yield exec(`git archive ${to} --format=tar \`git diff --name-only ${to} ${from} --diff-filter=ACMR\` -o ${outPutFile}`);
+    yield exec(`git archive ${to} --format=tar \`git diff --name-only ${from} ${to} --diff-filter=ACMR\` -o ${outPutFile}`);
     yield exec(`tar -zxvf ${outPutFile} -C ${outPutDir}`);
     fs_1.default.rm(outPutFile, (error) => {
         if (error) {

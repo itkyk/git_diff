@@ -17,7 +17,7 @@ const CreateFiles = async(_to:string, _from:string) => {
         await exec("mkdir ./gitDiffTemp");
     }
     Utility.log("---------Get Git Archive Start ---------")
-    await exec(`git archive ${to} --format=tar \`git diff --name-only ${to} ${from} --diff-filter=ACMR\` -o ${outPutFile}`);
+    await exec(`git archive ${to} --format=tar \`git diff --name-only ${from} ${to} --diff-filter=ACMR\` -o ${outPutFile}`);
     await exec(`tar -zxvf ${outPutFile} -C ${outPutDir}`);
     fs.rm(outPutFile, (error) => {
         if (error) {
