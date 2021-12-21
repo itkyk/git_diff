@@ -7,7 +7,7 @@
     "init": "tsc --init",
     "start": "tsc -w",
     "build": "tsc",
-    "test": "node ./dist/index.js -m -t HEAD -f origin/master && node ./dist/index.js -r"
+    "test": "node ./dist/index.js -m -t feature/#3 -f origin/master"
   },
   "repository": {
     "type": "git",
