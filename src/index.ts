@@ -5,18 +5,25 @@ import RemoveFiles from "./removeFiles";
 
 const program = new Command();
 
-program
-    .option("-m, --make", "create git diff")
-    .option("-r, --remove", "delete diff files")
-    .option("-t,--to [value]", "after commit branch")
-    .option("-f, --from [value]", "before commit branch", "origin/master")
-program.parse(process.argv);
-
-const opts = program.opts();
-
-if(opts.make) {
-    CreateFiles(opts.to, opts.from).then(r => {})
-} else if (opts.remove) {
-    RemoveFiles().then(r => {});
+interface optsInterface {
+  remove: boolean;
+  from: string;
+  to: string;
+  filter: string;
 }
 
+program
+    .option("-r, --remove", "delete diff files", false)
+    .option("-f, --from <value>", "before commit branch", "origin/master")
+    .option("-t,--to <value>", "after commit branch", "HEAD")
+    .option("--filter <value>", "set `diff-filter`", "ACMR")
+program.parse(process.argv);
+
+const opts = program.opts() as optsInterface;
+
+
+if (opts.remove) {
+  RemoveFiles().then(r => {});
+} else {
+  CreateFiles(opts.to, opts.from, opts.filter).then(r => {})
+}

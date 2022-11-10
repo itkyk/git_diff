@@ -17,7 +17,7 @@ const fs_1 = __importDefault(require("fs"));
 const util_1 = __importDefault(require("util"));
 const util_2 = __importDefault(require("./util"));
 const exec = util_1.default.promisify(child_process_1.exec);
-const CreateFiles = (_to, _from) => __awaiter(void 0, void 0, void 0, function* () {
+const CreateFiles = (_to, _from, _filter) => __awaiter(void 0, void 0, void 0, function* () {
     const to = _to;
     const from = _from;
     const outPutDir = "./gitDiffTemp";
@@ -27,7 +27,7 @@ const CreateFiles = (_to, _from) => __awaiter(void 0, void 0, void 0, function* 
         yield exec("mkdir ./gitDiffTemp");
     }
     util_2.default.log("---------Get Git Archive Start ---------");
-    yield exec(`git archive ${to} --format=tar \`git diff --name-only ${from} ${to} --diff-filter=ACMR\` -o ${outPutFile}`);
+    yield exec(`git archive ${to} --format=tar \`git diff --name-only ${from} ${to} --diff-filter=${_filter}\` -o ${outPutFile}`);
     yield exec(`tar -zxvf ${outPutFile} -C ${outPutDir}`);
     fs_1.default.rm(outPutFile, (error) => {
         if (error) {
