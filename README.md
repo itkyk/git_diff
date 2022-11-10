@@ -5,6 +5,7 @@
 - [Japanese(日本語)](#japanese)
 
 <h2 id="english">How to Use</h2>
+
 ### install
 ```
 $ npm install @itkyk/git-diff
@@ -43,10 +44,13 @@ $ npx @itkyk/git-diff --remove
 
 ### remove mode
 - Delete the `gitDiffTemp` directory created.
-  <br/>
-  <br/>
-  <br/>
+
+<br/>
+<br/>
+<br/>
 <h2 id="japanese">使い方</h2>
+
+
 ### インストール
 ```
 $ npm install @itkyk/git-diff
