@@ -25,5 +25,5 @@ const opts = program.opts() as optsInterface;
 if (opts.remove) {
   RemoveFiles().then(r => {});
 } else {
-  CreateFiles(opts.to, opts.from, opts.filter).then(r => {})
+  CreateFiles(opts.from, opts.to, opts.filter).then(r => {})
 }

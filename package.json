@@ -1,8 +1,9 @@
 {
   "name": "@itkyk/git-diff",
-  "version": "1.1.01",
+  "version": "1.2.0",
   "description": "",
-  "main": "./dist/index.js",
+  "main": "./dist/core.js",
+  "types": "./dist/code.d.ts",
   "scripts": {
     "init": "tsc --init",
     "start": "tsc -w",

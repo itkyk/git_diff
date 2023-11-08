@@ -45,6 +45,17 @@ $ npx @itkyk/git-diff --remove
 ### remove mode
 - Delete the `gitDiffTemp` directory created.
 
+## APIs
+```typescript
+import {createFiles, removeFiles} from "@itkyk/git-diff";
+
+// create diff files to `gitDiffTemp` directory.
+await createFiles("from", "to", "filter");
+
+// remove `gitDiffTemp` directory.
+await removeFiles();
+```
+
 <br/>
 <br/>
 <br/>
@@ -89,3 +100,14 @@ $ npx @itkyk/git-diff --remove
 
 ### removeモード
 - 作成された`gitDiffTemp`ディレクトリを削除します。
+
+## APIs
+```typescript
+import {createFiles, removeFiles} from "@itkyk/git-diff";
+
+// gitDiffTempディレクトリに差分ファイルを生成します。
+await createFiles("from", "to", "filter");
+
+// gitDiffTempディレクトリを削除します。
+await removeFiles();
+```
