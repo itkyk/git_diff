@@ -1,15 +1,15 @@
 {
   "name": "@itkyk/git-diff",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "",
-  "main": "./dist/core.js",
-  "types": "./dist/code.d.ts",
+  "main": "dist/core.js",
+  "types": "dist/core.d.ts",
   "scripts": {
     "init": "tsc --init",
     "start": "tsc -w",
     "build": "tsc",
     "remove": "node ./dist/index.js -r",
-    "test": "node ./dist/index.js -t feature/#4 -f origin/master"
+    "test": "node ./dist/index.js -t origin/feature/#4 -f origin/master"
   },
   "repository": {
     "type": "git",
@@ -37,7 +37,6 @@
     "@types/decompress": "^4.2.4",
     "child_process": "^1.0.2",
     "commander": "^8.3.0",
-    "fs": "0.0.1-security",
     "path": "^0.12.7",
     "rimraf": "^3.0.2",
     "util": "^0.12.4"

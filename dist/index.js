@@ -19,5 +19,5 @@ if (opts.remove) {
     (0, removeFiles_1.default)().then(r => { });
 }
 else {
-    (0, createFiles_1.default)(opts.to, opts.from, opts.filter).then(r => { });
+    (0, createFiles_1.default)(opts.from, opts.to, opts.filter).then(r => { });
 }
